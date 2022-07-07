@@ -16,4 +16,4 @@ echo '删除旧容器'
 docker stop vite-front-container
 docker rm vite-front-container
 echo '启动新容器'
-docker container run -p 3000:3000 -d --name vite-front-container vite-front
+docker container run -p 3000:3000 -d --name vite-front-container vite-front -c /www/server/panel/vhost/nginx/vite-front.conf
