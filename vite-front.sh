@@ -1,7 +1,7 @@
 #!/bin/bash
 WORK_PATH='/root/project/vite-project/vite-front'
 cd $WORK_PATH
-echo $WORK_PATH
+
 echo '清理代码'
 git reset --hard origin/master
 git clean -f
