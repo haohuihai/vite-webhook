@@ -1,6 +1,6 @@
 let http = require('http')
 let crypto = require('crypto');
-var spawn = require('child_precess').spawn;
+var spawn = require('child_process').spawn;
 let sendMail = require('./sendMail');
 
 const SECRET = '123456';
@@ -27,7 +27,6 @@ let server = http.createServer(function(req,res){
       if(event === 'push'){
         let payload = JSON.parse(body);
         let child = spawn('sh', [`./${payload.repository.name}.sh`]);
-        console.log(payload)
         let buffers = [];
         child.stdout.on('data', function (buffer) { buffers.push(buffer)});
         child.stdout.on('end', function () {
