@@ -11,9 +11,9 @@ git pull origin master
 echo "打包最新代码"
 npm run build
 echo '开始构建镜像'
-docker build -t vite-front .
+docker build -t vite-front:1.0 .
 echo '删除旧容器'
 docker stop vite-front-container
 docker rm vite-front-container
 echo '启动新容器'
-docker container run -p 3000:3000 -d --name vite-front-container vite-front -c /www/server/panel/vhost/nginx/vite-front.conf
+docker container run -p 3000:80 -d --name vite-front-container vite-front:1.0
